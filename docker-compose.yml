@@ -1,0 +1,18 @@
+version: '3'
+services:
+    rabbitmq-management:
+        build:
+            dockerfile: ./docker/rabbitmq-management.dockerfile
+            context: .
+        image: rabbitmq-management:tag
+        container_name: rabbitmq-management
+        ports:
+            - "15671:15671"
+            - "15672:15672"
+            - "5672:5672"
+            - "25672:25672"
+        networks:
+            - production-network
+networks:
+    production-network:
+        driver: bridge
