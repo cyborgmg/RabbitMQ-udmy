@@ -11,14 +11,14 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class EmployeeJsonConsumer {
+public class MarketingConsumer {
 	
 	private ObjectMapper objectMapper = new ObjectMapper(); 
 	
-	@RabbitListener(queues="course.employee")
+	@RabbitListener(queues="q.hr.marketing")
 	private void listen(String message) throws JsonParseException, JsonMappingException, IOException {
 		Employee e = objectMapper.readValue(message, Employee.class);
-		System.out.println(e);
+		System.out.println("On marketing : "+e);
 	}
 
 }

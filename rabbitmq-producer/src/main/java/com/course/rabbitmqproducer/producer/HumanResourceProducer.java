@@ -9,7 +9,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 @Service
-public class EmployeeJsonProducer {
+public class HumanResourceProducer {
 
 	@Autowired
 	private RabbitTemplate rabbitTemplate;
@@ -20,7 +20,7 @@ public class EmployeeJsonProducer {
 		
 		String json = objectMapper.writeValueAsString(e);
 		
-		rabbitTemplate.convertAndSend("course.employee",json);
+		rabbitTemplate.convertAndSend("x.hr", "", json);
 		
 	}
 	
