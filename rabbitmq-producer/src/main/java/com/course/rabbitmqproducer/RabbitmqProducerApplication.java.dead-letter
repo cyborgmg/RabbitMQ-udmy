@@ -14,7 +14,13 @@ import com.course.rabbitmqproducer.producer.MyPictureProducer;
 
 @SpringBootApplication
 public class RabbitmqProducerApplication implements CommandLineRunner {
-	
+	/*
+	 			 q.mypicture.image(x-dead-letter-exchange:x.mypicture.dlx) --> q.mypicture.dlx
+	 			/
+	 x.mypicture
+	 			\q.mypicture.image2(x-dead-letter-exchange:x.mypicture.dlx; x-message-ttl:5000) --> q.mypicture.dlx
+	 
+	*/
 	@Autowired
 	private MyPictureProducer myPictureProducer;
 	
