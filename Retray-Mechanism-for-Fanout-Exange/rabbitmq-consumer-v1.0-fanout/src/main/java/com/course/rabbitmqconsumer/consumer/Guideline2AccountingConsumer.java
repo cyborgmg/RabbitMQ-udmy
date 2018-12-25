@@ -35,7 +35,7 @@ public class Guideline2AccountingConsumer {
 	public void listen(Message message, Channel channel)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
 		try {
-			var e = objectMapper.readValue(message.getBody(), Employee.class);
+			Employee e = objectMapper.readValue(message.getBody(), Employee.class);
 
 			if (StringUtils.isEmpty(e.getName())) {
 				throw new IllegalArgumentException("Name is empty");

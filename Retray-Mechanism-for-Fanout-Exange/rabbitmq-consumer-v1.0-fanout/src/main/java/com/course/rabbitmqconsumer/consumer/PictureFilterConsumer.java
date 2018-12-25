@@ -18,7 +18,7 @@ public class PictureFilterConsumer {
 	@RabbitListener(queues = "q.picture.filter")
 	public void listen(String message)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
-		var p = objectMapper.readValue(message, Picture.class);
+		Picture p = objectMapper.readValue(message, Picture.class);
 		// process the image
 		System.out.println("Applying image filter : " + p);
 	}

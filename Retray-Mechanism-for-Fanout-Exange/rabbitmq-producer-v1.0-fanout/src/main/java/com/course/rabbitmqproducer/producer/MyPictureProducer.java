@@ -17,7 +17,7 @@ public class MyPictureProducer {
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	public void sendMessage(Picture p) throws JsonProcessingException {
-		var json = objectMapper.writeValueAsString(p);
+		String json = objectMapper.writeValueAsString(p);
 		rabbitTemplate.convertAndSend("x.mypicture", p.getType(), json);
 	}
 

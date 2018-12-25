@@ -17,7 +17,7 @@ public class EmployeeJsonProducer {
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	public void sendMessage(Employee e) throws JsonProcessingException {
-		var json = objectMapper.writeValueAsString(e);
+		String json = objectMapper.writeValueAsString(e);
 		rabbitTemplate.convertAndSend("course.employee", json);
 	}
 

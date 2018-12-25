@@ -33,7 +33,7 @@ public class GuidelineImageConsumer {
 	public void listen(Message message, Channel channel)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
 		try {
-			var p = objectMapper.readValue(message.getBody(), Picture.class);
+			Picture p = objectMapper.readValue(message.getBody(), Picture.class);
 			// process the image
 			if (p.getSize() > 9000) {
 				// throw exception, we will use DLX handler for retry mechanism

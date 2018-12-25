@@ -20,7 +20,7 @@ public class MyPictureImageConsumer {
 	@RabbitListener(queues = "q.mypicture.image")
 	public void listen(Message message, Channel channel)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
-		var p = objectMapper.readValue(message.getBody(), Picture.class);
+		Picture p = objectMapper.readValue(message.getBody(), Picture.class);
 		// process the image
 		if (p.getSize() > 9000) {
 			// reject the message manually

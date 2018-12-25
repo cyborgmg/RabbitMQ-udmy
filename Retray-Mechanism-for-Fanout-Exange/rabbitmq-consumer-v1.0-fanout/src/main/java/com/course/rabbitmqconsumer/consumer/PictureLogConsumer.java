@@ -18,7 +18,7 @@ public class PictureLogConsumer {
 	@RabbitListener(queues = "q.picture.log")
 	public void listen(String message)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
-		var p = objectMapper.readValue(message, Picture.class);
+		Picture p = objectMapper.readValue(message, Picture.class);
 		// process the image
 		System.out.println("Logging large vector : " + p);
 	}

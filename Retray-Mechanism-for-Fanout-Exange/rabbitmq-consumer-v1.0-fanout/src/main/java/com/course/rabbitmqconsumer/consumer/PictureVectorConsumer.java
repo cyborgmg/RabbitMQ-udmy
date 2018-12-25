@@ -18,7 +18,7 @@ public class PictureVectorConsumer {
 	@RabbitListener(queues = "q.picture.vector")
 	public void listen(String message)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
-		var p = objectMapper.readValue(message, Picture.class);
+		Picture p = objectMapper.readValue(message, Picture.class);
 		// process the picture
 		System.out.println("Convert to image, creating thumbnail, & publishing : " + p);
 	}

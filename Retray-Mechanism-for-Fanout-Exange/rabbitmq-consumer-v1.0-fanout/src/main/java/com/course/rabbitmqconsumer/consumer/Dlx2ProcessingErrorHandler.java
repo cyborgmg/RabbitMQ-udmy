@@ -134,7 +134,7 @@ public class Dlx2ProcessingErrorHandler {
 	 *         <code>false</code> otherwise
 	 */
 	public boolean handleErrorProcessingMessage(Message message, Channel channel) {
-		var rabbitMqHeader = new RabbitmqHeader(message.getMessageProperties().getHeaders());
+		RabbitmqHeader rabbitMqHeader = new RabbitmqHeader(message.getMessageProperties().getHeaders());
 
 		try {
 			if (rabbitMqHeader.getFailedRetryCount() >= maxRetryCount) {

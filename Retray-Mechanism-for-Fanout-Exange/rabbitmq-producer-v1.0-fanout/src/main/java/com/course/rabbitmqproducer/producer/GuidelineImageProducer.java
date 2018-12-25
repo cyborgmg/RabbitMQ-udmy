@@ -17,7 +17,7 @@ public class GuidelineImageProducer {
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	public void sendMessage(Picture p) throws JsonProcessingException {
-		var json = objectMapper.writeValueAsString(p);
+		String json = objectMapper.writeValueAsString(p);
 		rabbitTemplate.convertAndSend("x.guideline.work", p.getType(), json);
 	}
 

@@ -18,7 +18,7 @@ public class EmployeeJsonConsumer {
 	@RabbitListener(queues = "course.employee")
 	public void listen(String message)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
-		var e = objectMapper.readValue(message, Employee.class);
+		Employee e = objectMapper.readValue(message, Employee.class);
 		System.out.println(e);
 	}
 

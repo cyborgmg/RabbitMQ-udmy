@@ -17,13 +17,13 @@ public class PictureProducer {
 	private ObjectMapper objectMapper = new ObjectMapper();
 
 	public void sendMessage(Picture p) throws JsonProcessingException {
-		var sb = new StringBuilder();
-		// 1st word is “mobile” or “web”, which is picture source
+		StringBuilder sb = new StringBuilder();
+		// 1st word is ï¿½mobileï¿½ or ï¿½webï¿½, which is picture source
 		sb.append(p.getSource());
 		sb.append('.');
 
-		// 2nd word is “large” or “small”, which is based on picture size. Picture with
-		// size more than 4000 are considered “large”
+		// 2nd word is ï¿½largeï¿½ or ï¿½smallï¿½, which is based on picture size. Picture with
+		// size more than 4000 are considered ï¿½largeï¿½
 		if (p.getSize() > 4000) {
 			sb.append("large");
 		} else {
@@ -34,8 +34,8 @@ public class PictureProducer {
 		// 3rd word is picture type (jpg, png, or svg)
 		sb.append(p.getType());
 
-		var routingKey = sb.toString();
-		var json = objectMapper.writeValueAsString(p);
+		String routingKey = sb.toString();
+		String json = objectMapper.writeValueAsString(p);
 		rabbitTemplate.convertAndSend("x.picture2", routingKey, json);
 	}
 

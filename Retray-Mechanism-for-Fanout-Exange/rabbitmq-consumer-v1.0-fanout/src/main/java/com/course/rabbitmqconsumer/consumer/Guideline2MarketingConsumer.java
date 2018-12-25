@@ -27,7 +27,7 @@ public class Guideline2MarketingConsumer {
 	@RabbitListener(queues = "q.guideline2.marketing.work")
 	public void listen(Message message, Channel channel)
 			throws InterruptedException, JsonParseException, JsonMappingException, IOException {
-		var e = objectMapper.readValue(message.getBody(), Employee.class);
+		Employee e = objectMapper.readValue(message.getBody(), Employee.class);
 		log.info("On marketing : " + e);
 		channel.basicAck(message.getMessageProperties().getDeliveryTag(), false);
 	}
