@@ -1,0 +1,70 @@
+{
+	"info": {
+		"_postman_id": "9a33f1ed-3294-4b46-948e-459bca66081b",
+		"name": "RabbitMQ-Publisher-API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "x.hr",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"keyOne\":\"valueOne\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/publish/x.hr",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"publish",
+						"x.hr"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "x.picture/jpg",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"keyTwo\":\"valueTwo\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/publish/x.picture/jpg",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"publish",
+						"x.picture",
+						"jpg"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
