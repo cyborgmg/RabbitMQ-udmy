@@ -2,8 +2,6 @@ FROM rabbitmq:3.7
 
 RUN rabbitmq-plugins enable --offline rabbitmq_management
 
-# extract "rabbitmqadmin" from inside the "rabbitmq_management-X.Y.Z.ez" plugin zipfile
-# see https://github.com/docker-library/rabbitmq/issues/207
 RUN set -eux; \
 	erl -noinput -eval ' \
 		{ ok, AdminBin } = zip:foldl(fun(FileInArchive, GetInfo, GetBin, Acc) -> \
