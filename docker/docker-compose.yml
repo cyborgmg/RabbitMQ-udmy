@@ -2,9 +2,9 @@ version: '3'
 services:
     rabbitmq-management:
         build:
-            dockerfile: ./docker/rabbitmq-management.dockerfile
+            dockerfile: ./rabbitmq-management.dockerfile
             context: .
-        image: rabbitmq-management:tag
+        image: rabbitmq-management:udmy
         container_name: rabbitmq-management
         ports:
             - "15671:15671"

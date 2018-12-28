@@ -26,4 +26,8 @@ RUN set -eux; \
 	rm -rf /var/lib/apt/lists/*; \
 	rabbitmqadmin --version
 
+ENTRYPOINT ["rabbitmqadmin"]
+
+CMD ["-q","import","/rabbitconf.json"]
+
 EXPOSE 15671 15672 5672 25672
